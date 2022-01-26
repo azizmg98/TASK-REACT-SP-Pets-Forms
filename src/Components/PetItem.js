@@ -1,4 +1,6 @@
 import petStore from '../petStore';
+import PetUpdateModal from './PetUpdateModal'
+
 export default function PetItem(props) {
   const pet = props.pet;
   return (
@@ -13,6 +15,13 @@ export default function PetItem(props) {
             onClick={() => petStore.handleAdopt(pet.id)}
           >
             Adopt
+          </button>
+          <button
+            type="button"
+            class="btn btn-info"
+            onClick={<PetUpdateModal oldPet={pet}/>}
+          >
+            Update
           </button>
         </div>
       </div>
