@@ -5,6 +5,9 @@ import petStore from '../petStore';
 import PetCreateModal from './PetCreateModal';
 
 function PetsList() {
+  const [isOpen, setIsOpen] = useState(false);  
+  const handleShow = () => setIsOpen(!isOpen);
+
   const [query, setQuery] = useState('');
   const [type, setType] = useState('');
   const pets = petStore.pets
@@ -17,7 +20,6 @@ function PetsList() {
   return (
     
     <section id="doctors" class="doctor-section pt-140">
-      <PetCreateModal />
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xxl-5 col-xl-6 col-lg-7">
@@ -50,6 +52,7 @@ function PetsList() {
                 <option value="Rabbit">Rabbit</option>
               </select>
             </div>
+              <PetCreateModal isOpen={isOpen} handleShow={handleShow} />
           </div>
         </div>
 

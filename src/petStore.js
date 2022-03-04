@@ -1,5 +1,5 @@
-import { action, makeObservable, observable } from 'mobx';
-import petsData from './petsData';
+import { action, makeObservable, observable } from "mobx";
+import petsData from "./petsData";
 
 class PetStore {
   pets = petsData;
@@ -17,13 +17,13 @@ class PetStore {
 
   // in constructor methods dont need a const
   addPet = (pet) => {
-    pet.id = this.pets[this.pets.length -1].id
-    this.pets.push(pet)
-  }
+    pet.id = this.pets[this.pets.length - 1].id;
+    this.pets.push(pet);
+  };
 
-  petUpdated = (pet) => {
-    this.pet
-  }
+  updatePet = (newPet) => {
+    this.pets = this.pets.map((pet) => (pet.id === newPet.id ? newPet : pet));
+  };
 }
 
 const petStore = new PetStore();
